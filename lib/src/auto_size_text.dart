@@ -31,6 +31,7 @@ class AutoSizeText extends StatefulWidget {
     this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
+    this.textHeightBehavior,
   })  : assert(data != null,
             'A non-null String must be provided to a AutoSizeText widget.'),
         textSpan = null,
@@ -58,6 +59,7 @@ class AutoSizeText extends StatefulWidget {
     this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
+    this.textHeightBehavior,
   })  : assert(textSpan != null,
             'A non-null TextSpan must be provided to a AutoSizeText.rich widget.'),
         data = null,
@@ -215,6 +217,8 @@ class AutoSizeText extends StatefulWidget {
   /// Text(r'$$', semanticsLabel: 'Double dollars')
   /// ```
   final String semanticsLabel;
+
+  final TextHeightBehavior textHeightBehavior;
 
   @override
   _AutoSizeTextState createState() => _AutoSizeTextState();
@@ -383,6 +387,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         maxLines: words.length,
         locale: widget.locale,
         strutStyle: widget.strutStyle,
+        textHeightBehavior: widget.textHeightBehavior,
       );
 
       wordWrapTp.layout(maxWidth: constraints.maxWidth);
@@ -401,6 +406,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
       maxLines: maxLines,
       locale: widget.locale,
       strutStyle: widget.strutStyle,
+      textHeightBehavior: widget.textHeightBehavior,
     );
 
     tp.layout(maxWidth: constraints.maxWidth);
@@ -425,6 +431,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         textScaleFactor: 1,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
+        textHeightBehavior: widget.textHeightBehavior,
       );
     } else {
       return Text.rich(
@@ -440,6 +447,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         textScaleFactor: fontSize / style.fontSize,
         maxLines: maxLines,
         semanticsLabel: widget.semanticsLabel,
+        textHeightBehavior: widget.textHeightBehavior,
       );
     }
   }

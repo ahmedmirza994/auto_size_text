@@ -61,7 +61,6 @@ void main() {
   });
 
   testWidgets('Text fits height', (tester) async {
-    // TODO uncomment when flutter bug is fixed (https://github.com/flutter/flutter/issues/22557)
     /*await pumpAndExpectFontSize(
       tester: tester,
       fontSize: 30,
